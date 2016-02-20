@@ -210,4 +210,20 @@ public class TextBuddy {
 			return null;
 		}
 	}
+	
+	public static void sortFile(String file) {
+		ArrayList<String> sortFileContents = convertToArrayList(file);
+		
+		Collections.sort(sortFileContents);
+		
+		clearFile(file);
+		
+		for (int i = 0; i < sortFileContents.size(); i++) {
+			addToFile(file, sortFileContents.get(i));
+		}
+		
+	//	System.out.print("\n");
+		System.out.println(String.format(MESSAGE_SORTED, file));
+		System.out.print("\n");
+	}
 }
