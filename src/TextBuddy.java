@@ -14,6 +14,7 @@ public class TextBuddy {
 	private static final String MESSAGE_LINE_DELETED = "deleted from %s: \"%s\"";
 	private static final String MESSAGE_WELCOME = "Welcome to TextBuddy. %s is ready for use";
 	private static final String MESSAGE_SORTED = "%s is sorted";
+	private static final String MESSAGE_SEARCHED = "Searching";
 	
 	private static Scanner sc = new Scanner(System.in);
 	
