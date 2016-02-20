@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class TextBuddy {
@@ -14,7 +16,7 @@ public class TextBuddy {
 	private static final String MESSAGE_LINE_DELETED = "deleted from %s: \"%s\"";
 	private static final String MESSAGE_WELCOME = "Welcome to TextBuddy. %s is ready for use";
 	private static final String MESSAGE_SORTED = "%s is sorted";
-	private static final String MESSAGE_SEARCHED = "Searching...";
+	private static final String MESSAGE_SEARCHED = "Searching text file...";
 	
 	private static Scanner sc = new Scanner(System.in);
 	
@@ -185,5 +187,7 @@ public class TextBuddy {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		
 	}
 }
