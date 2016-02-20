@@ -187,7 +187,27 @@ public class TextBuddy {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
+	}
+	
+	//Utilizing the ArrayList data structure for implementation of search and sort function
+	public static ArrayList<String> convertToArrayList(String file) {
+		try {			
+			ArrayList<String> fileContents = new ArrayList<String>();
+			String line;
+			
+			FileReader fileR = new FileReader(file);
+			BufferedReader buffR = new BufferedReader(fileR);
+			
+			while ((line = buffR.readLine()) != null) {
+				fileContents.add(line);
+			}
+			
+			buffR.close();
+			
+			return fileContents;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }
