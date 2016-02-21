@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -49,8 +50,7 @@ public class TextBuddy {
 			System.out.print("command: ");			
 			String command = sc.nextLine();
 			String partialCommandcommand = getOnlyCommand(command);
-			String partialCommandInput = getOnlyInput(command);
-//			String command = sc.next();			
+			String partialCommandInput = getOnlyInput(command);		
 			commandInput(partialCommandcommand, file, partialCommandInput);
 		}
 	}
@@ -238,8 +238,16 @@ public class TextBuddy {
 	public static String searchFromFile(String file, String input) {
 		ArrayList<String> searchFileContents = convertToArrayList(file);
 		String results = "";
+		int lineCount = 1;
 		
-		
+		for (int i = 0; i < searchFileContents.size(); i++) {
+			String lineRetrieve = searchFileContents.get(i);
+			String[] splittedLine = lineRetrieve.split(" ");
+			if (Arrays.asList(splittedLine).contains(input)) {
+				results = lineCount + ". " + searchFileContents.get(i) + "\r\n";
+				lineCount++;
+			}
+		}
 		
 		return results;
 	}
