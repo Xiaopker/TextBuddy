@@ -67,6 +67,12 @@ public class TextBuddy {
 		} else if (command.equals("delete")) {
 			// Delete line specified by user input if keyword "delete (line number in file)" typed
 			deleteFromFile(file, input);
+		} else if (command.equals("sort")) {
+			// Sort file by first letter of lines in alphabetical order
+			sortFile(file);
+		} else if (command.equals("search")) {
+			// Search file by word and print out lines that contain the input word
+			searchFromFile(file, input);
 		} else if (command.equals("exit")) {
 			// Terminating the program upon keyword "exit" typed
 			System.exit(0);
@@ -225,5 +231,9 @@ public class TextBuddy {
 	//	System.out.print("\n");
 		System.out.println(String.format(MESSAGE_SORTED, file));
 		System.out.print("\n");
+	}
+	
+	public static void searchFromFile(String file, String input) {
+		
 	}
 }
