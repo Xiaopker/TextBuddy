@@ -14,9 +14,9 @@ public class TextBuddyTest {
 		
 		TextBuddy.commandInput("clear", "mytextfile.txt", "clear");
 		
-		expected = "added to mytextfile.txt: \"Test line added\"";
-		assertEquals("add more words to test command", expected, TextBuddy.commandInput("add", "mytextfile.txt", "Test line added"));
-		expected = "1. Test line added\r\n";
+		expected = "added to mytextfile.txt: \"Test line added add adds adding\"";
+		assertEquals("add more words to test command", expected, TextBuddy.commandInput("add", "mytextfile.txt", "Test line added add adds adding"));
+		expected = "1. Test line added add adds adding\r\n";
 		assertEquals("Check whether test line is added", expected, TextBuddy.commandInput("display", "mytextfile.txt", "display"));
 		
 		TextBuddy.commandInput("clear", "mytextfile.txt", "clear");
@@ -51,6 +51,11 @@ public class TextBuddyTest {
 		assertEquals("check if contents have seen sorted correctly", expected2, TextBuddy.commandInput("display", "mytextfile.txt", "display"));	
 		
 		TextBuddy.commandInput("clear", "mytextfile.txt", "clear");
+	}
+	
+	@Test
+	public void testSearchFromFile() {
+		
 	}
 
 }
