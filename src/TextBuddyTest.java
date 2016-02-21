@@ -15,8 +15,8 @@ public class TextBuddyTest {
 		TextBuddy.commandInput("clear", "mytextfile.txt", "clear");
 		
 		expected = "added to mytextfile.txt: \"Test line added\"";
-		assertEquals("add more words to test command", expected, TextBuddy.commandInput("add", "mytextfile.txt", "Test line added adding"));
-		expected = "1. Test line added";
+		assertEquals("add more words to test command", expected, TextBuddy.commandInput("add", "mytextfile.txt", "Test line added"));
+		expected = "1. Test line added\r\n";
 		assertEquals("Check whether test line is added", expected, TextBuddy.commandInput("display", "mytextfile.txt", "display"));
 		
 		TextBuddy.commandInput("clear", "mytextfile.txt", "clear");
@@ -32,21 +32,25 @@ public class TextBuddyTest {
 		assertEquals("clear the file", expected, TextBuddy.commandInput("clear", "mytextfile.txt", "clear"));
 		expected = "mytextfile.txt is empty";
 		assertEquals("check if file is empty", expected, TextBuddy.commandInput("display", "mytextfile.txt", "display"));
+		
+		TextBuddy.commandInput("clear", "mytextfile.txt", "clear");
 	}
 	
 	@Test 
 	public void testSortFile() {
-		TextBuddy.commandInput("add", "mytextfile.txt", "add Alpha test case");
-		TextBuddy.commandInput("add", "mytextfile.txt", "add Delta test case");
-		TextBuddy.commandInput("add", "mytextfile.txt", "add Mike test case");
-		TextBuddy.commandInput("add", "mytextfile.txt", "add Beta test case");
-		TextBuddy.commandInput("add", "mytextfile.txt", "add Oscar test case");
-		TextBuddy.commandInput("add", "mytextfile.txt", "add Hotel test case");
+		TextBuddy.commandInput("add", "mytextfile.txt", "Alpha test case");
+		TextBuddy.commandInput("add", "mytextfile.txt", "Delta test case");
+		TextBuddy.commandInput("add", "mytextfile.txt", "Mike test case");
+		TextBuddy.commandInput("add", "mytextfile.txt", "Beta test case");
+		TextBuddy.commandInput("add", "mytextfile.txt", "Oscar test case");
+		TextBuddy.commandInput("add", "mytextfile.txt", "Hotel test case");
 		
 		String expected = "mytextfile.txt is sorted";
 		assertEquals("sort the file", expected, TextBuddy.commandInput("sort", "mytextfile.txt", "sort"));
-		expected = "1. Alpha test case\r\n2. Beta test case\r\n3. Delta test case\r\n4. Hotel test case\r\n5. Mike test case\r\n6. Oscar test case";
-		assertEquals("check if contents have seen sorted correctly", expected, TextBuddy.commandInput("display", "mytextfile.txt", "display"));	
+		String expected2 = "1. Alpha test case\r\n2. Beta test case\r\n3. Delta test case\r\n4. Hotel test case\r\n5. Mike test case\r\n6. Oscar test case";
+		assertEquals("check if contents have seen sorted correctly", expected2, TextBuddy.commandInput("display", "mytextfile.txt", "display"));	
+		
+		TextBuddy.commandInput("clear", "mytextfile.txt", "clear");
 	}
 
 }
