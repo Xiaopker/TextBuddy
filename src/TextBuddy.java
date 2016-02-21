@@ -69,7 +69,7 @@ public class TextBuddy {
 			deleteFromFile(file, input);
 		} else if (command.equals("sort")) {
 			// Sort file by first letter of lines in alphabetical order
-			sortFile(file);
+			returnValue = sortFile(file);
 		} else if (command.equals("search")) {
 			// Search file by word and print out lines that contain the input word
 			searchFromFile(file, input);
@@ -143,7 +143,7 @@ public class TextBuddy {
 					lineNo += 1;
 					System.out.print("\n");
 					System.out.println(lineNo + ". " + line);
-					output += lineNo + ". " + line;
+					output += lineNo + ". " + line + "\r\n";
 				}
 				System.out.print("\n");
 				buffR.close();
@@ -217,7 +217,7 @@ public class TextBuddy {
 		}
 	}
 	
-	public static void sortFile(String file) {
+	public static String sortFile(String file) {
 		ArrayList<String> sortFileContents = convertToArrayList(file);
 		
 		Collections.sort(sortFileContents);
@@ -231,6 +231,8 @@ public class TextBuddy {
 	//	System.out.print("\n");
 		System.out.println(String.format(MESSAGE_SORTED, file));
 		System.out.print("\n");
+		
+		return String.format(MESSAGE_SORTED, file);
 	}
 	
 	public static void searchFromFile(String file, String input) {
