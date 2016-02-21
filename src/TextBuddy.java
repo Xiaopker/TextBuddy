@@ -16,7 +16,7 @@ public class TextBuddy {
 	private static final String MESSAGE_LINE_DELETED = "deleted from %s: \"%s\"";
 	private static final String MESSAGE_WELCOME = "Welcome to TextBuddy. %s is ready for use";
 	private static final String MESSAGE_SORTED = "%s is sorted";
-	private static final String MESSAGE_SEARCHED = "Searching text file...";
+	private static final String MESSAGE_SEARCHING = "Searching text file...";
 	
 	private static Scanner sc = new Scanner(System.in);
 	
@@ -33,10 +33,13 @@ public class TextBuddy {
 	}
 	
 	private static String getOnlyCommand(String command) {
+		// Split using whitespace as delimiters and returning [0] which is the command only itself
 		return command.split("\\s+")[0];
 	}
 	
 	private static String getOnlyInput(String command) {
+		// Replace the command within the input with blanks to return
+		// the whole input less the command
 		return command.replace(getOnlyCommand(command), "");
 	}
 	
@@ -72,7 +75,7 @@ public class TextBuddy {
 			returnValue = sortFile(file);
 		} else if (command.equals("search")) {
 			// Search file by word and print out lines that contain the input word
-			searchFromFile(file, input);
+			returnValue = searchFromFile(file, input);
 		} else if (command.equals("exit")) {
 			// Terminating the program upon keyword "exit" typed
 			System.exit(0);
@@ -86,8 +89,6 @@ public class TextBuddy {
 		try {
 			FileWriter fileW = new FileWriter(file, true);
 			BufferedWriter buffW = new BufferedWriter(fileW);
-	//		String inputData = sc.nextLine();
-	//		inputData = inputData.trim();
 			input = input.trim();
 			
 			buffW.write(input);
@@ -228,14 +229,18 @@ public class TextBuddy {
 			addToFile(file, sortFileContents.get(i));
 		}
 		
-	//	System.out.print("\n");
 		System.out.println(String.format(MESSAGE_SORTED, file));
 		System.out.print("\n");
 		
 		return String.format(MESSAGE_SORTED, file);
 	}
 	
-	public static void searchFromFile(String file, String input) {
+	public static String searchFromFile(String file, String input) {
+		ArrayList<String> searchFileContents = convertToArrayList(file);
+		String results = "";
 		
+		
+		
+		return results;
 	}
 }
