@@ -55,8 +55,17 @@ public class TextBuddyTest {
 	
 	@Test
 	public void testSearchFromFile() {
+		TextBuddy.commandInput("add", "mytextfile.txt", "alpha test case");
+		TextBuddy.commandInput("add", "mytextfile.txt", "delta test cases");
+		TextBuddy.commandInput("add", "mytextfile.txt", "mike test case");
+		TextBuddy.commandInput("add", "mytextfile.txt", "alpha test cases");
+		TextBuddy.commandInput("add", "mytextfile.txt", "delta tests case");
+		TextBuddy.commandInput("add", "mytextfile.txt", "hotel tests case");
 		
-	}
+		String expected = "1. alpha test case\r\n2. alpha test cases\r\n";
+		assertEquals("check if lines containing same words is searched", expected, TextBuddy.commandInput("search", "mytextfile.txt", "alpha"));
+		
 
+	}
 }
 
