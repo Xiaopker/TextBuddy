@@ -1,5 +1,4 @@
 import static org.junit.Assert.*;
-import org.junit.Before;
 
 import org.junit.Test;
 
@@ -67,6 +66,9 @@ public class TextBuddyTest {
 		
 		String expected2 = "1. delta test cases\r\n2. alpha test cases\r\n";
 		assertEquals("check if lines containing same words is searched", expected2, TextBuddy.commandInput("search", "mytextfile.txt", "cases"));
+		
+		String expected3 = "1. alpha test case\r\n2. mike test case\r\n3. delta tests case\r\n4. hotel tests case\r\n";
+		assertEquals("check if line containing same words is searched", expected3, TextBuddy.commandInput("search", "mytextfile.txt", "case"));
 		
 		TextBuddy.commandInput("clear", "mytextfile.txt", "clear");
 	}
