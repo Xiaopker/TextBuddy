@@ -240,11 +240,13 @@ public class TextBuddy {
 		String results = "";
 		int lineCount = 1;
 		
+		System.out.println(MESSAGE_SEARCHING);
+		
 		for (int i = 0; i < searchFileContents.size(); i++) {
 			String lineRetrieve = searchFileContents.get(i);
 			String[] splittedLine = lineRetrieve.split(" ");
 			if (Arrays.asList(splittedLine).contains(input)) {
-				results = lineCount + ". " + searchFileContents.get(i) + "\r\n";
+				results += lineCount + ". " + searchFileContents.get(i) + "\r\n";
 				lineCount++;
 			}
 		}
