@@ -245,6 +245,8 @@ public class TextBuddy {
 		for (int i = 0; i < searchFileContents.size(); i++) {
 			String lineRetrieve = searchFileContents.get(i);
 			String[] splittedLine = lineRetrieve.split(" ");
+			
+			// test whether the string array contains the search input
 			if (Arrays.asList(splittedLine).contains(input)) {
 				results += lineCount + ". " + searchFileContents.get(i) + "\r\n";
 				lineCount++;
