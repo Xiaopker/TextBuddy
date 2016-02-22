@@ -41,7 +41,7 @@ public class TextBuddy {
 	private static String getOnlyInput(String command) {
 		// Replace the command within the input with blanks to return
 		// the whole input less the command
-		return command.replace(getOnlyCommand(command), "");
+		return command.replace(getOnlyCommand(command), "").trim();
 	}
 	
 	// Print the first page for input when program loads
@@ -240,19 +240,21 @@ public class TextBuddy {
 		String results = "";
 		int lineCount = 1;
 		
+		System.out.print("\n");
 		System.out.println(MESSAGE_SEARCHING);
+		System.out.print("\n");
 		
 		for (int i = 0; i < searchFileContents.size(); i++) {
 			String lineRetrieve = searchFileContents.get(i);
 			String[] splittedLine = lineRetrieve.split(" ");
-			
+
 			// test whether the string array contains the search input
 			if (Arrays.asList(splittedLine).contains(input)) {
-				results += lineCount + ". " + searchFileContents.get(i) + "\r\n";
+				results += lineCount + ". " + searchFileContents.get(i) + "\r\n\r\n";
 				lineCount++;
 			}
 		}
-		
+		System.out.println(results);
 		return results;
 	}
 }
