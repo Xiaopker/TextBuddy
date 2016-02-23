@@ -48,7 +48,7 @@ public class TextBuddyTest {
 		TextBuddy.commandInput("add", "mytextfile.txt", "Oscar test case");
 		TextBuddy.commandInput("add", "mytextfile.txt", "Hotel test case");
 		
-		String expected = "mytextfile.txt is sorted";
+		String expected = "mytextfile.txt is sorted alphabetically";
 		assertEquals("sort the file", expected, TextBuddy.commandInput("sort", "mytextfile.txt", "sort"));
 		String expected2 = "1. Alpha test case\r\n2. Beta test case\r\n3. Delta test case\r\n4. Hotel test case\r\n5. Mike test case\r\n6. Oscar test case\r\n";
 		assertEquals("check if contents have seen sorted correctly", expected2, TextBuddy.commandInput("display", "mytextfile.txt", "display"));	
