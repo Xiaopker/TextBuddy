@@ -17,7 +17,7 @@ public class TextBuddy {
 	private static final String MESSAGE_LINE_DELETED = "deleted from %s: \"%s\"";
 	private static final String MESSAGE_WELCOME = "Welcome to TextBuddy. %s is ready for use";
 	private static final String MESSAGE_SORTED = "%s is sorted";
-	private static final String MESSAGE_SEARCHING = "Searching text file...";
+	private static final String MESSAGE_SEARCHING = "Searching %s...";
 	
 	private static Scanner sc = new Scanner(System.in);
 	
@@ -34,13 +34,14 @@ public class TextBuddy {
 	}
 	
 	private static String getOnlyCommand(String command) {
-		// Split using whitespace as delimiters and returning [0] which is the command only itself
+		// Split using whitespace as delimiters and returning [0] which is the 
+		// command only itself
 		return command.split("\\s+")[0];
 	}
 	
 	private static String getOnlyInput(String command) {
 		// Replace the command within the input with blanks to return
-		// the whole input less the command
+		// the whole input excluding the command
 		return command.replace(getOnlyCommand(command), "").trim();
 	}
 	
@@ -241,7 +242,7 @@ public class TextBuddy {
 		int lineCount = 1;
 		
 		System.out.print("\n");
-		System.out.println(MESSAGE_SEARCHING);
+		System.out.println(String.format(MESSAGE_SEARCHING, file));
 		System.out.print("\n");
 		
 		for (int i = 0; i < searchFileContents.size(); i++) {
@@ -254,7 +255,11 @@ public class TextBuddy {
 				lineCount++;
 			}
 		}
-		System.out.println(results);
+		
+		System.out.print(results);
+		System.out.println("Total of " + (lineCount - 1) + " records found.");
+		System.out.print("\n");
+		
 		return results;
 	}
 }
