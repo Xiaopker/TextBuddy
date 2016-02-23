@@ -6,6 +6,8 @@ public class TextBuddyTest {
 
 	@Test
 	public void testAddToFile() {
+		TextBuddy.commandInput("clear", "mytextfile.txt", "clear");
+		
 		String expected = "added to mytextfile.txt: \"Test line added\"";
 		assertEquals("add a test line", expected, TextBuddy.commandInput("add", "mytextfile.txt", "Test line added"));
 		expected = "1. Test line added\r\n";
@@ -37,6 +39,8 @@ public class TextBuddyTest {
 	
 	@Test 
 	public void testSortFile() {
+		TextBuddy.commandInput("clear", "mytextfile.txt", "clear");
+		
 		TextBuddy.commandInput("add", "mytextfile.txt", "Alpha test case");
 		TextBuddy.commandInput("add", "mytextfile.txt", "Delta test case");
 		TextBuddy.commandInput("add", "mytextfile.txt", "Mike test case");
@@ -54,6 +58,8 @@ public class TextBuddyTest {
 	
 	@Test
 	public void testSearchFromFile() {
+		TextBuddy.commandInput("clear", "mytextfile.txt", "clear");
+		
 		TextBuddy.commandInput("add", "mytextfile.txt", "alpha test case");
 		TextBuddy.commandInput("add", "mytextfile.txt", "delta test cases");
 		TextBuddy.commandInput("add", "mytextfile.txt", "mike test case");
@@ -61,13 +67,14 @@ public class TextBuddyTest {
 		TextBuddy.commandInput("add", "mytextfile.txt", "delta tests case");
 		TextBuddy.commandInput("add", "mytextfile.txt", "hotel tests case");
 		
-		String expected = "1. alpha test case\r\n2. alpha test cases\r\n";
+
+		String expected = "1. alpha test case\r\n\r\n2. alpha test cases\r\n\r\n";
 		assertEquals("check if lines containing same words is searched", expected, TextBuddy.commandInput("search", "mytextfile.txt", "alpha"));
 		
-		String expected2 = "1. delta test cases\r\n2. alpha test cases\r\n";
+		String expected2 = "1. delta test cases\r\n\r\n2. alpha test cases\r\n\r\n";
 		assertEquals("check if lines containing same words is searched", expected2, TextBuddy.commandInput("search", "mytextfile.txt", "cases"));
 		
-		String expected3 = "1. alpha test case\r\n2. mike test case\r\n3. delta tests case\r\n4. hotel tests case\r\n";
+		String expected3 = "1. alpha test case\r\n\r\n2. mike test case\r\n\r\n3. delta tests case\r\n\r\n4. hotel tests case\r\n\r\n";
 		assertEquals("check if line containing same words is searched", expected3, TextBuddy.commandInput("search", "mytextfile.txt", "case"));
 		
 		TextBuddy.commandInput("clear", "mytextfile.txt", "clear");
