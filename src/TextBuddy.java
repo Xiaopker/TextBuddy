@@ -16,7 +16,7 @@ public class TextBuddy {
 	private static final String MESSAGE_EMPTY = "%s is empty";
 	private static final String MESSAGE_LINE_DELETED = "deleted from %s: \"%s\"";
 	private static final String MESSAGE_WELCOME = "Welcome to TextBuddy. %s is ready for use";
-	private static final String MESSAGE_SORTED = "%s is sorted";
+	private static final String MESSAGE_SORTED = "%s is sorted alphabetically";
 	private static final String MESSAGE_SEARCHING = "Searching %s...";
 	
 	private static Scanner sc = new Scanner(System.in);
@@ -62,9 +62,17 @@ public class TextBuddy {
 		if (command.equals("add")) {
 			// Add line input by user to file if keyword "add (input line)" is typed
 			returnValue = addToFile(file, input);
+			
+			System.out.print("\n");
+			System.out.println(returnValue);
+			System.out.print("\n");
 		} else if (command.equals("clear")) {
 			// Clear all lines on file if keyword "clear" is typed
 			returnValue = clearFile(file);
+			
+			System.out.print("\n");
+			System.out.println(returnValue);
+			System.out.print("\n");
 		} else if (command.equals("display")) {
 			// Display all lines in file if keyword "display" is typed
 			returnValue = displayFile(file);
@@ -73,6 +81,7 @@ public class TextBuddy {
 			deleteFromFile(file, input);
 		} else if (command.equals("sort")) {
 			// Sort file by first letter of lines in alphabetical order
+			System.out.print("\n");
 			returnValue = sortFile(file);
 		} else if (command.equals("search")) {
 			// Search file by word and print out lines that contain the input word
@@ -96,9 +105,9 @@ public class TextBuddy {
 			buffW.newLine();
 			buffW.close();
 			
-			System.out.print("\n");
+/*			System.out.print("\n");
 			System.out.println(String.format(MESSAGE_ADD_TO_FILE, file, input));
-			System.out.print("\n");	
+			System.out.print("\n");	 */
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -114,9 +123,9 @@ public class TextBuddy {
 			fileW.flush();
 			fileW.close();
 			
-			System.out.print("\n");
+	/*		System.out.print("\n");
 			System.out.println(String.format(MESSAGE_CLEAR, file));
-			System.out.print("\n");
+			System.out.print("\n");*/
 			
 		} catch (IOException e) {
 			e.printStackTrace();
