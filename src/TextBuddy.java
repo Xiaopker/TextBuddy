@@ -95,7 +95,6 @@ public class TextBuddy {
 		
 	}
 	
-	//To add
 	public static String addToFile(String file, String input) {	
 		try {
 			FileWriter fileW = new FileWriter(file, true);
