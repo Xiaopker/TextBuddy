@@ -82,6 +82,7 @@ public class TextBuddy {
 		} else if (command.equals("sort")) {
 			// Sort file by first letter of lines in alphabetical order
 			System.out.print("\n");
+			
 			returnValue = sortFile(file);
 		} else if (command.equals("search")) {
 			// Search file by word and print out lines that contain the input word
@@ -206,7 +207,8 @@ public class TextBuddy {
 		}
 	}
 	
-	//Utilizing the ArrayList data structure for implementation of search and sort function
+	// Utilizing the ArrayList data structure for implementation of search 
+	// and sort function
 	public static ArrayList<String> convertToArrayList(String file) {
 		try {			
 			ArrayList<String> fileContents = new ArrayList<String>();
